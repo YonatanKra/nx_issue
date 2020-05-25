@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@test-libs/presto-client": ["libs/presto-client/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,8 +1,114 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "presto-client": {
+      "root": "libs/presto-client",
+      "sourceRoot": "libs/presto-client/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/presto-client/.eslintrc",
+            "tsConfig": [
+              "libs/presto-client/tsconfig.lib.json",
+              "libs/presto-client/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/presto-client/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/presto-client/jest.config.js",
+            "tsConfig": "libs/presto-client/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/presto-client",
+            "tsConfig": "libs/presto-client/tsconfig.lib.json",
+            "packageJson": "libs/presto-client/package.json",
+            "main": "libs/presto-client/src/index.ts",
+            "assets": [
+              "libs/presto-client/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "reports-api": {
+      "root": "apps/reports-api",
+      "sourceRoot": "apps/reports-api/src",
+      "projectType": "application",
+      "prefix": "reports-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/reports-api",
+            "main": "apps/reports-api/src/main.ts",
+            "tsConfig": "apps/reports-api/tsconfig.app.json",
+            "assets": [
+              "apps/reports-api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/reports-api/src/environments/environment.ts",
+                  "with": "apps/reports-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "reports-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/reports-api/.eslintrc",
+            "tsConfig": [
+              "apps/reports-api/tsconfig.app.json",
+              "apps/reports-api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/reports-api/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/reports-api/jest.config.js",
+            "tsConfig": "apps/reports-api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/node"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -62,5 +168,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "reports-api"
 }
