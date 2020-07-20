@@ -520,7 +520,7 @@
   dependencies:
     "@angular-devkit/architect" "~0.901.0"
 
-"@nrwl/node@^9.3.0":
+"@nrwl/node@9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@nrwl/node/-/node-9.3.0.tgz#9670d671f4cebf3708e84f35e6cb0ccebcb4cee3"
   integrity sha512-Qv1rDTum8wio/n55yKts1tPnZnbemitk3tMYP3kfplW9g362zns24Z5MgDF9bKXEBHuvEGotaAIFX5Vg6GiL8Q==
@@ -4486,9 +4486,9 @@ lodash.sortby@^4.7.0:
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
 lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 log-symbols@^3.0.0:
   version "3.0.0"
